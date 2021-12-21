@@ -1,8 +1,12 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialDesignModule } from './models/md.module';
+
+import localEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localEs, 'es');
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeClienteComponent } from './components/clientes/home-cliente/home-cliente.component';
+import { MsjEliminarComponent } from './shared/mensajes-confirmacion/msj-eliminar/msj-eliminar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import { HomeClienteComponent } from './components/clientes/home-cliente/home-cl
     HeaderComponent,
     HomeComponent,
     HomeClienteComponent,
+    MsjEliminarComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,8 @@ import { HomeClienteComponent } from './components/clientes/home-cliente/home-cl
     MaterialDesignModule,
     HttpClientModule,
   ],
-  providers: [],
+  entryComponents: [MsjEliminarComponent],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

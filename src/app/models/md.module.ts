@@ -17,6 +17,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSortModule } from '@angular/material/sort';
 
 const materialModules = [
   MatButtonModule,
@@ -37,6 +41,10 @@ const materialModules = [
   MatSnackBarModule,
   MatProgressBarModule,
   MatExpansionModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSlideToggleModule,
+  MatSortModule,
 ];
 
 @NgModule({

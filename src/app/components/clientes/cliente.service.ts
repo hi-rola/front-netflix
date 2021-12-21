@@ -13,4 +13,8 @@ export class ClienteService {
   getAllCliente(): Observable<any> {
     return this.http.get(this.URL_BACKEND + 'cliente');
   }
+
+  deleteCliente(id: number): Observable<any> {
+    return this.http.delete(this.URL_BACKEND + '/cliente/' + id);
+  }
 }
