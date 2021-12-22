@@ -1,3 +1,4 @@
+import { Cliente } from './../Cliente';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,6 +11,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-cliente',
@@ -40,7 +42,8 @@ export class HomeClienteComponent implements OnInit {
   constructor(
     private clienteService: ClienteService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -82,6 +85,13 @@ export class HomeClienteComponent implements OnInit {
         });
       }
     });
+  }
+
+  editarInformacionCliente(cliente: Cliente) {
+    this.router.navigate([
+      '/actualizar-informacion-cliente',
+      cliente.id_cliente,
+    ]);
   }
 
   applyFilter(event: Event) {

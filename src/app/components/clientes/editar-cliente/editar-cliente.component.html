@@ -16,7 +16,7 @@
               >
             </button>
           </div>
-          <div class="div-titulo-registrar">Registrar cliente</div>
+          <div class="div-titulo-registrar">Actualizar información</div>
         </div>
       </mat-card-header>
       <form [formGroup]="formNuevoCliente">
@@ -286,9 +286,9 @@
             mat-stroked-button
             id="boton-guardar"
             class="mat-elevation-z4"
-            (click)="registrarCliente()"
+            (click)="guardar()"
           >
-            Registrar
+            Guardar
           </button>
           <button
             mat-stroked-button

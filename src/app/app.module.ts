@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeClienteComponent } from './components/clientes/home-cliente/home-cliente.component';
 import { MsjEliminarComponent } from './shared/mensajes-confirmacion/msj-eliminar/msj-eliminar.component';
 import { RegistrarClienteComponent } from './components/clientes/registrar-cliente/registrar-cliente.component';
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RegistrarClienteComponent } from './components/clientes/registrar-clien
     HomeClienteComponent,
     MsjEliminarComponent,
     RegistrarClienteComponent,
+    EditarClienteComponent,
   ],
   imports: [
     BrowserModule,

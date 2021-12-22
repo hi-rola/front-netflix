@@ -1,3 +1,4 @@
+import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeClienteComponent } from './components/clientes/home-cliente/home-cliente.component';
@@ -9,6 +10,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'clientes', component: HomeClienteComponent },
   { path: 'registrar-cliente', component: RegistrarClienteComponent },
+  {
+    path: 'actualizar-informacion-cliente/:id',
+    component: EditarClienteComponent,
+  },
 ];
 
 @NgModule({

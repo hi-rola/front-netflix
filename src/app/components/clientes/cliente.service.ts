@@ -15,8 +15,23 @@ export class ClienteService {
     return this.http.get(this.URL_BACKEND + 'cliente');
   }
 
+  getClienteById(id: number): Observable<any> {
+    return this.http.get(this.URL_BACKEND + '/cliente/' + id);
+  }
+
+  getClienteDireccion(id: number): Observable<any> {
+    return this.http.get(this.URL_BACKEND + '/cliente-dir/' + id);
+  }
+
   saveCliente(cliente: Cliente): Observable<any> {
     return this.http.post(this.URL_BACKEND + '/cliente/', cliente);
+  }
+
+  updateCliente(cliente: Cliente): Observable<any> {
+    return this.http.put(
+      this.URL_BACKEND + '/cliente/' + cliente.id_cliente,
+      cliente
+    );
   }
 
   deleteCliente(id: number): Observable<any> {

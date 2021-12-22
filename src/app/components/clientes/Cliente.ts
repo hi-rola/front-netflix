@@ -1,5 +1,7 @@
 export class Cliente {
   constructor(
+    public id_cliente: number | null,
+    public id_direccion: number | null,
     public nombre: string,
     public apellidos: string,
     public email: string,
