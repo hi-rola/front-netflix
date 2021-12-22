@@ -4,12 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -24,4 +24,8 @@ body {
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+.mat-form-field-ripple {
+  background-color: #317254 !important;
 }

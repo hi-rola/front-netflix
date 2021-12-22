@@ -1,0 +1,305 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="main">
+    <mat-card style="margin-bottom: 30px" id="contenido-registrar-academico">
+      <mat-card-header class="card-header">
+        <div class="div-registrar-estudiante">
+          <div class="div-volver-estudiante">
+            <button
+              mat-icon-button
+              matTooltip="Volver"
+              matTooltipClass="cerrar-sesion"
+              routerLink="/clientes"
+            >
+              <mat-icon class="icono-volver-estudiante"
+                >keyboard_backspace</mat-icon
+              >
+            </button>
+          </div>
+          <div class="div-titulo-registrar">Registrar cliente</div>
+        </div>
+      </mat-card-header>
+      <form [formGroup]="formNuevoCliente">
+        <mat-card-content class="card-content">
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form">
+                <mat-label>Nombre del cliente</mat-label>
+                <input matInput formControlName="nombre" />
+                <mat-error
+                  *ngIf="
+                    form.nombre.touched ||
+                    form.nombre.dirty ||
+                    form.nombre.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.nombre.errors?.required"
+                    >Falta ingresar el nombre</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form">
+                <mat-label>Apellidos del cliente</mat-label>
+                <input matInput formControlName="apellidos" />
+                <mat-error
+                  *ngIf="
+                    form.apellidos.touched ||
+                    form.apellidos.dirty ||
+                    form.apellidos.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.apellidos.errors?.required"
+                    >Falta ingresar los apellidos</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Correo del cliente</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error
+                  *ngIf="
+                    form.email.touched || form.email.dirty || form.email.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.email.errors?.required"
+                    >Falta ingresar el correo</span
+                  >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.email.errors?.pattern"
+                    >Correo invalido</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Teléfono del cliente</mat-label>
+                <input matInput formControlName="telefono" />
+                <mat-error
+                  *ngIf="
+                    form.telefono.touched ||
+                    form.telefono.dirty ||
+                    form.telefono.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.telefono.errors?.required"
+                    >Falta ingresar teléfono</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Dirección del cliente</mat-label>
+                <input matInput formControlName="direccion" />
+                <mat-error
+                  *ngIf="
+                    form.direccion.touched ||
+                    form.direccion.dirty ||
+                    form.direccion.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.direccion.errors?.required"
+                    >Falta ingresar direccion</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Dirección 2</mat-label>
+                <input matInput formControlName="direccion2" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Distrito del cliente</mat-label>
+                <input matInput formControlName="distrito" />
+                <mat-error
+                  *ngIf="
+                    form.distrito.touched ||
+                    form.distrito.dirty ||
+                    form.distrito.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.distrito.errors?.required"
+                    >Falta ingresar distrito</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Código postal del cliente</mat-label>
+                <input matInput formControlName="codigo_postal" />
+                <mat-error
+                  *ngIf="
+                    form.codigo_postal.touched ||
+                    form.codigo_postal.dirty ||
+                    form.codigo_postal.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.codigo_postal.errors?.required"
+                    >Falta ingresar codigo postal</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Ciudad</mat-label>
+                <mat-select formControlName="idCiudad">
+                  <mat-option
+                    *ngFor="let item of ciudad"
+                    [value]="item.id_ciudad"
+                    >{{ item.nombre }}</mat-option
+                  >
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.idCiudad.touched ||
+                    form.idCiudad.dirty ||
+                    form.idCiudad.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.idCiudad.errors?.required"
+                  >
+                    Falta ingresar ciudad del cliente
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Almacen</mat-label>
+                <mat-select formControlName="idAlmacen">
+                  <mat-option
+                    *ngFor="let al of almacen"
+                    [value]="al.id_almacen"
+                    >{{ al.id_almacen }}</mat-option
+                  >
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.idAlmacen.touched ||
+                    form.idAlmacen.dirty ||
+                    form.idAlmacen.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.idAlmacen.errors?.required"
+                  >
+                    Falta ingresar almacen
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Estatus</mat-label>
+                <mat-select formControlName="activo">
+                  <mat-option value="1">Activo</mat-option>
+                  <mat-option value="2">Inactivo</mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.activo.touched ||
+                    form.activo.dirty ||
+                    form.activo.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.activo.errors?.required"
+                  >
+                    Falta ingresar estatus del cliente
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Fecha de registro</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="fecha_creacion"
+                  readonly
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                  *ngIf="
+                    form.fecha_creacion.touched ||
+                    form.fecha_creacion.dirty ||
+                    form.fecha_creacion.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.fecha_creacion.errors?.required"
+                  >
+                    Falta ingresar la fecha de registro
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="card-action" style="margin-bottom: 50px">
+          <button
+            mat-stroked-button
+            id="boton-guardar"
+            class="mat-elevation-z4"
+            (click)="registrarCliente()"
+          >
+            Registrar
+          </button>
+          <button
+            mat-stroked-button
+            id="boton-cancelar"
+            class="mat-elevation-z4"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+  <app-footer></app-footer>
+</div>

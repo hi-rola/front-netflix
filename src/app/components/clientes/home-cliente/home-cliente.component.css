@@ -18,8 +18,9 @@
   position: relative;
   width: 300px;
   height: 100%;
-  border-radius: 3px;
-  background-color: #fff;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #40916c, #2d6a4f);
+  color: white;
   cursor: pointer;
 }
 
@@ -27,10 +28,6 @@
   font-size: 17px;
   font-weight: 500;
   padding-left: 35px;
-}
-
-.agregar-tarea:hover {
-  color: gray;
 }
 
 .icon-agregar-tarea {
@@ -43,7 +40,6 @@
   bottom: 15px;
   right: 18px;
   border-radius: 3px;
-  background-color: #5a7faf;
   cursor: default;
 }
 
@@ -78,10 +74,13 @@
   background-color: #ee6c4d;
 }
 
-.titulo-tarea {
+.titulo-registrar {
   font-size: 16px;
-  font-weight: 400;
-  color: white;
+  font-weight: 600;
+}
+
+.titulo-registrar:hover {
+  color: black;
 }
 
 .descripcion {
