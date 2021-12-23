@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeClienteComponent } from './components/clientes/home-cliente/home-cliente.component';
 import { RegistrarClienteComponent } from './components/clientes/registrar-cliente/registrar-cliente.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomeInventarioComponent } from './components/inventario/home-inventario/home-inventario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
     path: 'actualizar-informacion-cliente/:id',
     component: EditarClienteComponent,
   },
+  { path: 'inventario', component: HomeInventarioComponent },
 ];
 
 @NgModule({

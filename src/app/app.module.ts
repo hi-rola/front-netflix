@@ -18,6 +18,9 @@ import { HomeClienteComponent } from './components/clientes/home-cliente/home-cl
 import { MsjEliminarComponent } from './shared/mensajes-confirmacion/msj-eliminar/msj-eliminar.component';
 import { RegistrarClienteComponent } from './components/clientes/registrar-cliente/registrar-cliente.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
+import { HomeInventarioComponent } from './components/inventario/home-inventario/home-inventario.component';
+import { MsjEliminarInventarioComponent } from './shared/mensajes-confirmacion/msj-eliminar-inventario/msj-eliminar-inventario.component';
+import { RegistrarInventarioComponent } from './components/inventario/registrar-inventario/registrar-inventario.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { EditarClienteComponent } from './components/clientes/editar-cliente/edi
     MsjEliminarComponent,
     RegistrarClienteComponent,
     EditarClienteComponent,
+    HomeInventarioComponent,
+    MsjEliminarInventarioComponent,
+    RegistrarInventarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,11 @@ import { EditarClienteComponent } from './components/clientes/editar-cliente/edi
     MaterialDesignModule,
     HttpClientModule,
   ],
-  entryComponents: [MsjEliminarComponent],
+  entryComponents: [
+    MsjEliminarComponent,
+    MsjEliminarInventarioComponent,
+    RegistrarInventarioComponent,
+  ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
 })
