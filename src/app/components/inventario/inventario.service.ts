@@ -15,6 +15,10 @@ export class InventarioService {
     return this.http.get<Inventario[]>(this.URL_BACKEND + 'inventario');
   }
 
+  getInventarioById(id: number): Observable<Inventario> {
+    return this.http.get<Inventario>(this.URL_BACKEND + '/inventario/' + id);
+  }
+
   deleteInventario(inventario: Inventario): Observable<Inventario> {
     return this.http.delete<Inventario>(
       this.URL_BACKEND + '/inventario/' + inventario.id_inventario
@@ -23,6 +27,10 @@ export class InventarioService {
 
   saveInventario(inventario: Inventario): Observable<any> {
     return this.http.post(this.URL_BACKEND + '/inventario/', inventario);
+  }
+
+  updateInventario(id: number, inventario: Inventario): Observable<any> {
+    return this.http.put(this.URL_BACKEND + '/inventario/' + id, inventario);
   }
 
   getAlmacen(): Observable<any> {

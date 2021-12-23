@@ -21,6 +21,7 @@ import { EditarClienteComponent } from './components/clientes/editar-cliente/edi
 import { HomeInventarioComponent } from './components/inventario/home-inventario/home-inventario.component';
 import { MsjEliminarInventarioComponent } from './shared/mensajes-confirmacion/msj-eliminar-inventario/msj-eliminar-inventario.component';
 import { RegistrarInventarioComponent } from './components/inventario/registrar-inventario/registrar-inventario.component';
+import { EditarInventarioComponent } from './components/inventario/editar-inventario/editar-inventario.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RegistrarInventarioComponent } from './components/inventario/registrar-
     HomeInventarioComponent,
     MsjEliminarInventarioComponent,
     RegistrarInventarioComponent,
+    EditarInventarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { RegistrarInventarioComponent } from './components/inventario/registrar-
     MsjEliminarComponent,
     MsjEliminarInventarioComponent,
     RegistrarInventarioComponent,
+    EditarInventarioComponent,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],

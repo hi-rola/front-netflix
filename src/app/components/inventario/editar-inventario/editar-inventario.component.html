@@ -1,0 +1,64 @@
+<div class="header-dialog">
+  <div>
+    <h2 class="titulo-card">Actualizar información inventario</h2>
+  </div>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div class="form-proyecto">
+    <form [formGroup]="formActualizarInventario">
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Película</mat-label>
+        <mat-select formControlName="idPelicula">
+          <mat-option
+            *ngFor="let pelicula of peliculas"
+            [value]="pelicula.id_pelicula"
+            >{{ pelicula.titulo }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            form.idPelicula.touched ||
+            form.idPelicula.dirty ||
+            form.idPelicula.invalid
+          "
+        >
+          <span class="mensaje-errror" *ngIf="form.idPelicula.errors?.required">
+            Falta ingresar la película
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Almacen</mat-label>
+        <mat-select formControlName="idAlmacen">
+          <mat-option
+            *ngFor="let almacen of almacenes"
+            [value]="almacen.id_almacen"
+            >{{ almacen.id_almacen }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            form.idAlmacen.touched ||
+            form.idAlmacen.dirty ||
+            form.idAlmacen.invalid
+          "
+        >
+          <span class="mensaje-errror" *ngIf="form.idAlmacen.errors?.required">
+            Falta ingresar el almacen
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="actualizarInformacion()"
+  >
+    Guardar
+  </button>
+</mat-dialog-actions>

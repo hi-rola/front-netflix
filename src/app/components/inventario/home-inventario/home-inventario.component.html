@@ -5,7 +5,7 @@
       <div class="div-tarea">
         <div
           class="agregar-tarea mat-elevation-z4"
-          (click)="mostrarDialogCrearProject()"
+          (click)="mostrarDialogCreateInventario()"
         >
           <span class="titulo-registrar">Registrar inventario</span>
           <div class="icon-agregar-tarea mat-elevation-z8">
@@ -66,6 +66,7 @@
               matTooltip="Editar información"
               matTooltipPosition="below"
               matTooltipClass="sesion"
+              (click)="mostrarDialogUpdateProject(inventario)"
             >
               <mat-icon class="icon">create</mat-icon>
             </button>

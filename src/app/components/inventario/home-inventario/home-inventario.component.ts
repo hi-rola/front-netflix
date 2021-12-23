@@ -1,3 +1,4 @@
+import { EditarInventarioComponent } from './../editar-inventario/editar-inventario.component';
 import { InventarioService } from './../inventario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -94,36 +95,30 @@ export class HomeInventarioComponent implements OnInit {
     }
   }
 
-  mostrarDialogCrearProject() {
+  mostrarDialogCreateInventario() {
     const dialogRef = this.dialog.open(RegistrarInventarioComponent, {
       width: '600px',
     });
 
-    dialogRef.afterClosed().subscribe(
-      (result) => {
-        if (result) {
-          this.ngOnInit();
-          this.mostrarInventario();
-          this._snackBar.open('Inventario registrado exitosamente', '', {
-            duration: 1500,
-            panelClass: 'error-alert-snackbar',
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
-          });
-        }
-      },
-      (error) => {
-        this._snackBar.open(
-          'Problemas al procesar la solictud, por favor inténtelo más tarde',
-          '',
-          {
-            duration: 1500,
-            panelClass: 'error-alert-snackbar',
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
-          }
-        );
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.ngOnInit();
+        this.mostrarInventario();
       }
-    );
+    });
+  }
+
+  mostrarDialogUpdateProject(inventario: Inventario) {
+    const dialogRef = this.dialog.open(EditarInventarioComponent, {
+      width: '600px',
+      data: { id_inventario: inventario.id_inventario },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.ngOnInit();
+        this.mostrarInventario();
+      }
+    });
   }
 }

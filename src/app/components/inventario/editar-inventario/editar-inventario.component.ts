@@ -1,25 +1,30 @@
-import { InventarioService } from './../inventario.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { InventarioService } from './../inventario.service';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-registrar-inventario',
-  templateUrl: './registrar-inventario.component.html',
-  styleUrls: ['./registrar-inventario.component.css'],
+  selector: 'app-editar-inventario',
+  templateUrl: './editar-inventario.component.html',
+  styleUrls: ['./editar-inventario.component.css'],
 })
-export class RegistrarInventarioComponent implements OnInit {
+export class EditarInventarioComponent implements OnInit {
   almacenes: any[] = [];
   peliculas: any[] = [];
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'left';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  formNuevoInventario = this.fb.group({
+  formActualizarInventario = this.fb.group({
     idPelicula: ['', Validators.required],
     idAlmacen: ['', Validators.required],
   });
@@ -27,30 +32,48 @@ export class RegistrarInventarioComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private inventarioService: InventarioService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<EditarInventarioComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
+    let id_inventario = this.data.id_inventario;
+
+    this.inventarioService
+      .getInventarioById(id_inventario)
+      .subscribe((result) => {
+        this.formActualizarInventario
+          .get('idPelicula')
+          ?.setValue(result.id_pelicula);
+        this.formActualizarInventario
+          .get('idAlmacen')
+          ?.setValue(result.id_almacen);
+      });
+
     this.inventarioService.getAlmacen().subscribe((result) => {
       this.almacenes = result;
     });
-
     this.inventarioService.getPelicula().subscribe((result) => {
       this.peliculas = result;
     });
   }
 
   get form(): any {
-    return this.formNuevoInventario?.controls;
+    return this.formActualizarInventario?.controls;
   }
 
-  crearProyecto() {
-    if (this.formNuevoInventario.valid) {
+  actualizarInformacion() {
+    if (this.formActualizarInventario.valid) {
       this.inventarioService
-        .saveInventario(this.formNuevoInventario.value)
+        .updateInventario(
+          this.data.id_inventario,
+          this.formActualizarInventario.value
+        )
         .subscribe(
           (result) => {
-            this._snackBar.open('Inventario registrado exitosamente', '', {
+            this._snackBar.open('Información actualizada exitosamente', '', {
               duration: 2000,
               panelClass: 'error-alert-snackbar',
               horizontalPosition: this.horizontalPosition,
