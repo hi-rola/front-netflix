@@ -17,12 +17,7 @@
 
     <mat-form-field appearance="standard">
       <mat-label>Buscar</mat-label>
-      <input
-        matInput
-        (keyup)="applyFilter($event)"
-        placeholder="Eje. Sara"
-        #input
-      />
+      <input matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
     <div class="mat-elevation-z8" style="margin-bottom: 50px">
       <table mat-table [dataSource]="dataSource" matSort>
