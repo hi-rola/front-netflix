@@ -13,7 +13,7 @@
 }
 
 .card-header {
-  background: #1a759f;
+  background: #317254;
   color: white;
   justify-content: center;
   width: 100%;
@@ -96,7 +96,7 @@
 #boton-guardar,
 #boton-cancelar {
   margin-right: 30px;
-  background-color: #1a759f;
+  background-color: #317254;
   color: white;
   font-size: 16px;
   font-weight: normal;
