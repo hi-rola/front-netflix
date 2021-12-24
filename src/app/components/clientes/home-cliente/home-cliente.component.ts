@@ -56,7 +56,7 @@ export class HomeClienteComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.clientes);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator._intl.itemsPerPageLabel = 'Usuarios por página';
+      this.dataSource.paginator._intl.itemsPerPageLabel = 'Clientes por página';
       this.dataSource.paginator._intl.firstPageLabel = 'Inicio';
       this.dataSource.paginator._intl.nextPageLabel = 'Siguiente';
       this.dataSource.paginator._intl.previousPageLabel = 'Anterior';
@@ -78,7 +78,7 @@ export class HomeClienteComponent implements OnInit {
             this.mostrarClientes();
           });
         this._snackBar.open('Cliente eliminado exitosamente', '', {
-          duration: 1500,
+          duration: 2000,
           panelClass: 'error-alert-snackbar',
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,

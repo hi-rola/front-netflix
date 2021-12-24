@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const materialModules = [
   MatButtonModule,
@@ -45,6 +46,7 @@ const materialModules = [
   MatPaginatorModule,
   MatSlideToggleModule,
   MatSortModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

@@ -1,0 +1,174 @@
+.container-tareas {
+  width: 100%;
+  height: auto;
+}
+
+.div-tarea {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 85px;
+  margin-top: 20px;
+}
+
+.agregar-tarea {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 300px;
+  height: 100%;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #40916c, #2d6a4f);
+  color: white;
+  cursor: pointer;
+}
+
+.titulo-registrar {
+  font-size: 17px;
+  font-weight: 500;
+  padding-left: 35px;
+}
+
+.icon-agregar-tarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 15px;
+  right: 18px;
+  border-radius: 3px;
+  cursor: default;
+}
+
+.icon-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+}
+
+.contenido-tareas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.card-tarea {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  padding: 0 10px 0 10px;
+}
+
+.card-titulo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  padding: 5px 10px;
+  background-color: #ee6c4d;
+}
+
+.titulo-registrar {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.titulo-registrar:hover {
+  color: black;
+}
+
+.descripcion {
+  width: 100%;
+  height: auto;
+  margin-top: 12px;
+}
+
+.actions {
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha-entrega {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.item-menu {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.mensaje-tareas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.texto {
+  text-align: center;
+}
+
+.mensaje {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.img-empty {
+  min-width: 90px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+
+.mat-cell,
+.mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 0px 10px;
+  line-break: unset;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+
+@media (max-width: 700px) {
+  .div-tarea {
+    height: 70px;
+  }
+
+  .agregar-tarea {
+    width: 255px;
+  }
+
+  .icon-agregar-tarea {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    right: 18px;
+  }
+
+  .titulo-tarea {
+    padding-left: 15px;
+  }
+}

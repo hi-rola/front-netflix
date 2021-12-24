@@ -1,0 +1,264 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="main">
+    <mat-card style="margin-bottom: 30px" id="contenido-registrar-academico">
+      <mat-card-header class="card-header">
+        <div class="div-registrar-estudiante">
+          <div class="div-volver-estudiante">
+            <button
+              mat-icon-button
+              matTooltip="Volver"
+              matTooltipClass="cerrar-sesion"
+              routerLink="/peliculas"
+            >
+              <mat-icon class="icono-volver-estudiante"
+                >keyboard_backspace</mat-icon
+              >
+            </button>
+          </div>
+          <div class="div-titulo-registrar">
+            Actualizar información película
+          </div>
+        </div>
+      </mat-card-header>
+      <form [formGroup]="formEditarPelicula">
+        <mat-card-content class="card-content">
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form">
+                <mat-label>Título de la película</mat-label>
+                <input matInput formControlName="titulo" />
+                <mat-error
+                  *ngIf="
+                    form.titulo.touched ||
+                    form.titulo.dirty ||
+                    form.titulo.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.titulo.errors?.required"
+                    >Falta ingresar el titulo</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form">
+                <mat-label>Descripción de la película</mat-label>
+                <input matInput formControlName="descripcion" />
+                <mat-error
+                  *ngIf="
+                    form.descripcion.touched ||
+                    form.descripcion.dirty ||
+                    form.descripcion.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.descripcion.errors?.required"
+                    >Falta ingresar la descripcion</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Año lanzamineto</mat-label>
+                <input matInput formControlName="anyo_lanzamiento" />
+                <mat-error
+                  *ngIf="
+                    form.anyo_lanzamiento.touched ||
+                    form.anyo_lanzamiento.dirty ||
+                    form.anyo_lanzamiento.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.anyo_lanzamiento.errors?.required"
+                    >Falta ingresar el año de lanzamiento</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Idioma</mat-label>
+                <mat-select formControlName="id_idioma">
+                  <mat-option
+                    *ngFor="let idioma of idiomas"
+                    [value]="idioma.id_idioma"
+                    >{{ idioma.nombre }}</mat-option
+                  >
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.id_idioma.touched ||
+                    form.id_idioma.dirty ||
+                    form.id_idioma.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.id_idioma.errors?.required"
+                  >
+                    Falta ingresar el idioma
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Duración del alquiler</mat-label>
+                <input matInput formControlName="duracion_alquiler" />
+                <mat-error
+                  *ngIf="
+                    form.duracion_alquiler.touched ||
+                    form.duracion_alquiler.dirty ||
+                    form.duracion_alquiler.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.duracion_alquiler.errors?.required"
+                    >Falta ingresar la duracioón del alquiler</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Rental rate</mat-label>
+                <input matInput formControlName="rental_rate" />
+                <mat-error
+                  *ngIf="
+                    form.rental_rate.touched ||
+                    form.rental_rate.dirty ||
+                    form.rental_rate.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.rental_rate.errors?.required"
+                    >Falta ingresar el rental rate</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Duración de la película</mat-label>
+                <input matInput formControlName="duracion" />
+                <mat-error
+                  *ngIf="
+                    form.duracion.touched ||
+                    form.duracion.dirty ||
+                    form.duracion.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.duracion.errors?.required"
+                    >Falta ingresar la duracion</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Replacement cost</mat-label>
+                <input matInput formControlName="replacement_cost" />
+                <mat-error
+                  *ngIf="
+                    form.replacement_cost.touched ||
+                    form.replacement_cost.dirty ||
+                    form.replacement_cost.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.replacement_cost.errors?.required"
+                    >Falta ingresar el replacement cost</span
+                  >
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="div-form">
+            <div class="div-form-izq">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Características especiales</mat-label>
+                <input matInput formControlName="caracteristicas_especiales" />
+                <mat-error
+                  *ngIf="
+                    form.caracteristicas_especiales.touched ||
+                    form.caracteristicas_especiales.dirty ||
+                    form.caracteristicas_especiales.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.caracteristicas_especiales.errors?.required"
+                  >
+                    Falta ingresar características especiales
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="div-form-der">
+              <mat-form-field appearance="fill" class="form top">
+                <mat-label>Clasificación</mat-label>
+                <mat-select formControlName="clasificacion">
+                  <mat-option value="G">G</mat-option>
+                  <mat-option value="PG">PG</mat-option>
+                  <mat-option value="PG-13">PG-13</mat-option>
+                  <mat-option value="R">R</mat-option>
+                  <mat-option value="NC-17">NC-17</mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.clasificacion.touched ||
+                    form.clasificacion.dirty ||
+                    form.clasificacion.invalid
+                  "
+                >
+                  <span
+                    class="mensaje-errror"
+                    *ngIf="form.clasificacion.errors?.required"
+                  >
+                    Falta ingresar la clasificación
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="card-action" style="margin-bottom: 50px">
+          <button
+            mat-stroked-button
+            id="boton-guardar"
+            class="mat-elevation-z4"
+            (click)="actualizarInformacion()"
+          >
+            Actualizar
+          </button>
+          <button
+            mat-stroked-button
+            id="boton-cancelar"
+            class="mat-elevation-z4"
+            routerLink="/peliculas"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+  <app-footer></app-footer>
+</div>

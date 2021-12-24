@@ -22,6 +22,10 @@ import { HomeInventarioComponent } from './components/inventario/home-inventario
 import { MsjEliminarInventarioComponent } from './shared/mensajes-confirmacion/msj-eliminar-inventario/msj-eliminar-inventario.component';
 import { RegistrarInventarioComponent } from './components/inventario/registrar-inventario/registrar-inventario.component';
 import { EditarInventarioComponent } from './components/inventario/editar-inventario/editar-inventario.component';
+import { HomePeliculaComponent } from './components/pelicula/home-pelicula/home-pelicula.component';
+import { RegistrarPeliculaComponent } from './components/pelicula/registrar-pelicula/registrar-pelicula.component';
+import { MsjEliminarPeliculaComponent } from './shared/mensajes-confirmacion/msj-eliminar-pelicula/msj-eliminar-pelicula.component';
+import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/editar-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { EditarInventarioComponent } from './components/inventario/editar-invent
     MsjEliminarInventarioComponent,
     RegistrarInventarioComponent,
     EditarInventarioComponent,
+    HomePeliculaComponent,
+    RegistrarPeliculaComponent,
+    MsjEliminarPeliculaComponent,
+    EditarPeliculaComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +58,7 @@ import { EditarInventarioComponent } from './components/inventario/editar-invent
     MsjEliminarInventarioComponent,
     RegistrarInventarioComponent,
     EditarInventarioComponent,
+    MsjEliminarPeliculaComponent,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],

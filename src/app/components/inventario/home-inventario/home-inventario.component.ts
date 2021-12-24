@@ -55,7 +55,7 @@ export class HomeInventarioComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.inventario);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator._intl.itemsPerPageLabel = 'Usuarios por página';
+      this.dataSource.paginator._intl.itemsPerPageLabel = 'Items por página';
       this.dataSource.paginator._intl.firstPageLabel = 'Inicio';
       this.dataSource.paginator._intl.nextPageLabel = 'Siguiente';
       this.dataSource.paginator._intl.previousPageLabel = 'Anterior';

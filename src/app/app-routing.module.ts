@@ -1,3 +1,5 @@
+import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/editar-pelicula.component';
+import { RegistrarPeliculaComponent } from './components/pelicula/registrar-pelicula/registrar-pelicula.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,6 +7,7 @@ import { HomeClienteComponent } from './components/clientes/home-cliente/home-cl
 import { RegistrarClienteComponent } from './components/clientes/registrar-cliente/registrar-cliente.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeInventarioComponent } from './components/inventario/home-inventario/home-inventario.component';
+import { HomePeliculaComponent } from './components/pelicula/home-pelicula/home-pelicula.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +19,12 @@ const routes: Routes = [
     component: EditarClienteComponent,
   },
   { path: 'inventario', component: HomeInventarioComponent },
+  { path: 'peliculas', component: HomePeliculaComponent },
+  { path: 'registrar-pelicula', component: RegistrarPeliculaComponent },
+  {
+    path: 'actualizar-informacion-pelicula/:id',
+    component: EditarPeliculaComponent,
+  },
 ];
 
 @NgModule({
