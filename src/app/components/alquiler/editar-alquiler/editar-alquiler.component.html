@@ -1,0 +1,143 @@
+<div class="header-dialog">
+  <div>
+    <h2 class="titulo-card">Actualizar información alquiler</h2>
+  </div>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div class="form-proyecto">
+    <form [formGroup]="formEditarAlquiler">
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Película</mat-label>
+        <mat-select formControlName="id_pelicula">
+          <mat-option
+            *ngFor="let pelicula of peliculas"
+            [value]="pelicula.id_pelicula"
+            >{{ pelicula.titulo | uppercase }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            form.id_pelicula.touched ||
+            form.id_pelicula.dirty ||
+            form.id_pelicula.invalid
+          "
+        >
+          <span
+            class="mensaje-errror"
+            *ngIf="form.id_pelicula.errors?.required"
+          >
+            Falta ingresar la película
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="id_cliente">
+          <mat-option
+            *ngFor="let cliente of clientes"
+            [value]="cliente.id_cliente"
+            >{{ cliente.nombre | uppercase }}
+            {{ cliente.apellidos | uppercase }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            form.id_cliente.touched ||
+            form.id_cliente.dirty ||
+            form.id_cliente.invalid
+          "
+        >
+          <span class="mensaje-errror" *ngIf="form.id_cliente.errors?.required">
+            Falta ingresar el cliente
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Empleado</mat-label>
+        <mat-select formControlName="id_empleado">
+          <mat-option
+            *ngFor="let empleado of empleados"
+            [value]="empleado.id_empleado"
+            >{{ empleado.nombre | uppercase }}
+            {{ empleado.apellidos | uppercase }}</mat-option
+          >
+        </mat-select>
+        <mat-error
+          *ngIf="
+            form.id_empleado.touched ||
+            form.id_empleado.dirty ||
+            form.id_empleado.invalid
+          "
+        >
+          <span
+            class="mensaje-errror"
+            *ngIf="form.id_empleado.errors?.required"
+          >
+            Falta ingresar el empleado
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Seleccionar fecha de alquiler y devolución</mat-label>
+        <mat-date-range-input [rangePicker]="fechaAlquilerDevolucion">
+          <input
+            matStartDate
+            placeholder="Fecha alquiler"
+            formControlName="fecha_alquiler"
+            readonly
+          />
+          <input
+            matEndDate
+            placeholder="Fecha devolución"
+            formControlName="fecha_devolucion"
+            readonly
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="fechaAlquilerDevolucion"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #fechaAlquilerDevolucion></mat-date-range-picker>
+        <mat-error
+          *ngIf="
+            form.fecha_alquiler.touched ||
+            form.fecha_alquiler.dirty ||
+            form.fecha_alquiler.invalid
+          "
+        >
+          <span
+            class="mensaje-errror"
+            *ngIf="form.fecha_alquiler.errors?.required"
+          >
+            Falta ingresar la fecha de alquiler
+          </span>
+        </mat-error>
+        <mat-error
+          *ngIf="
+            form.fecha_devolucion.touched ||
+            form.fecha_devolucion.dirty ||
+            form.fecha_devolucion.invalid
+          "
+        >
+          <span
+            class="mensaje-errror"
+            *ngIf="form.fecha_devolucion.errors?.required"
+          >
+            Falta ingresar la fecha de devolución
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="actualizarAlquiler()"
+  >
+    Actualizar
+  </button>
+</mat-dialog-actions>

@@ -41,8 +41,7 @@ export class HomeInventarioComponent implements OnInit {
   constructor(
     private inventarioService: InventarioService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
-    private router: Router
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {

@@ -5,9 +5,9 @@
       <div class="div-tarea">
         <div
           class="agregar-tarea mat-elevation-z4"
-          routerLink="/registrar-cliente"
+          (click)="mostrarDialogCreateAlquiler()"
         >
-          <span class="titulo-registrar">Registrar cliente</span>
+          <span class="titulo-registrar">Registrar alquiler</span>
           <div class="icon-agregar-tarea mat-elevation-z8">
             <mat-icon class="icon-add">add_circle</mat-icon>
           </div>
@@ -24,60 +24,58 @@
         #input
       />
     </mat-form-field>
-
     <div class="mat-elevation-z8" style="margin-bottom: 50px">
       <table mat-table [dataSource]="dataSource" matSort>
-        <!-- ID Column -->
-        <ng-container matColumnDef="id_cliente">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-          <td class="id_cliente" mat-cell *matCellDef="let cliente">
-            {{ cliente.id_cliente }}
+        <ng-container matColumnDef="id_alquiler">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID alquiler</th>
+          <td class="id_cliente" mat-cell *matCellDef="let alquiler">
+            {{ alquiler.id_alquiler }}
           </td>
         </ng-container>
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
-          <td class="nombre" mat-cell *matCellDef="let cliente">
-            {{ cliente.nombre }}
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="apellidos">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellidos</th>
-          <td mat-cell *matCellDef="let cliente">
-            {{ cliente.apellidos }}
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-          <td mat-cell *matCellDef="let cliente">
-            {{ cliente.email }}
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="activo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>
-          <td mat-cell *matCellDef="let cliente">
-            {{ cliente.activo }}
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="fecha_creacion">
+        <ng-container matColumnDef="fecha_alquiler">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            Fecha creación
+            Fecha alquiler
           </th>
-          <td mat-cell *matCellDef="let cliente">
-            {{ cliente.fecha_creacion | date: "YYYY-MM-dd" }}
+          <td class="nombre" mat-cell *matCellDef="let alquiler">
+            {{ alquiler.fecha_alquiler | date: "YYYY-MM-dd" }}
           </td>
         </ng-container>
-
+        <ng-container matColumnDef="id_inventario">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Id inventario
+          </th>
+          <td mat-cell *matCellDef="let alquiler">
+            {{ alquiler.id_inventario }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="id_cliente">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Id cliente</th>
+          <td mat-cell *matCellDef="let alquiler">
+            {{ alquiler.id_cliente }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="fecha_devolucion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Fecha devolución
+          </th>
+          <td mat-cell *matCellDef="let alquiler">
+            {{ alquiler.fecha_devolucion | date: "YYYY-MM-dd" }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="id_empleado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Id empleado</th>
+          <td mat-cell *matCellDef="let alquiler">
+            {{ alquiler.id_empleado }}
+          </td>
+        </ng-container>
         <ng-container matColumnDef="ultima_actualizacion">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Fecha actualización
           </th>
-          <td mat-cell *matCellDef="let cliente">
-            {{ cliente.ultima_actualizacion | date: "YYYY-MM-dd" }}
+          <td mat-cell *matCellDef="let alquiler">
+            {{ alquiler.ultima_actualizacion | date: "YYYY-MM-dd" }}
           </td>
         </ng-container>
-
         <ng-container matColumnDef="actions">
           <th
             mat-header-cell
@@ -88,7 +86,7 @@
           </th>
           <td
             mat-cell
-            *matCellDef="let cliente"
+            *matCellDef="let alquiler"
             style="text-align: center !important"
           >
             <button
@@ -96,30 +94,28 @@
               matTooltip="Editar información"
               matTooltipPosition="below"
               matTooltipClass="sesion"
-              (click)="editarInformacionCliente(cliente)"
+              (click)="mostrarDialogUpdateAlquiler(alquiler)"
             >
               <mat-icon class="icon">create</mat-icon>
             </button>
             <button
               mat-icon-button
-              matTooltip="Eliminar cliente"
+              matTooltip="Eliminar alquiler"
               matTooltipPosition="below"
-              (click)="eliminarCliente(cliente)"
+              (click)="eliminarAlquiler(alquiler)"
             >
               <mat-icon class="icon">delete</mat-icon>
             </button>
           </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let cliente; columns: displayedColumns"></tr>
+        <tr mat-row *matRowDef="let alquiler; columns: displayedColumns"></tr>
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">
             No se encontró ninguna coincidencia "{{ input.value }}"
           </td>
         </tr>
       </table>
-
       <mat-paginator
         [pageSizeOptions]="[5, 10, 25, 100]"
         [pageSize]="20"

@@ -1,0 +1,36 @@
+.header-dialog {
+  height: 50px;
+  margin-top: -24px;
+  margin-bottom: 20px;
+  margin-left: -24px;
+  margin-right: -24px;
+  background: #317254;
+}
+
+.titulo-card {
+  padding-top: 10px;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+}
+
+.example-full-width {
+  margin: 0 2px;
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+}
+
+.form2 {
+  width: 49%;
+}
+
+.mensaje-errror {
+  font-size: 12px;
+}
+
+.top {
+  margin-top: 8px;
+}

@@ -26,6 +26,10 @@ import { HomePeliculaComponent } from './components/pelicula/home-pelicula/home-
 import { RegistrarPeliculaComponent } from './components/pelicula/registrar-pelicula/registrar-pelicula.component';
 import { MsjEliminarPeliculaComponent } from './shared/mensajes-confirmacion/msj-eliminar-pelicula/msj-eliminar-pelicula.component';
 import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/editar-pelicula.component';
+import { HomeAlquilerComponent } from './components/alquiler/home-alquiler/home-alquiler.component';
+import { MsjEliminarAlquilerComponent } from './shared/mensajes-confirmacion/msj-eliminar-alquiler/msj-eliminar-alquiler.component';
+import { RegistrarAlquilerComponent } from './components/alquiler/registrar-alquiler/registrar-alquiler.component';
+import { EditarAlquilerComponent } from './components/alquiler/editar-alquiler/editar-alquiler.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/e
     RegistrarPeliculaComponent,
     MsjEliminarPeliculaComponent,
     EditarPeliculaComponent,
+    HomeAlquilerComponent,
+    MsjEliminarAlquilerComponent,
+    RegistrarAlquilerComponent,
+    EditarAlquilerComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +67,9 @@ import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/e
     RegistrarInventarioComponent,
     EditarInventarioComponent,
     MsjEliminarPeliculaComponent,
+    MsjEliminarAlquilerComponent,
+    RegistrarAlquilerComponent,
+    EditarAlquilerComponent,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],

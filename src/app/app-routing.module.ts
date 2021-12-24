@@ -1,3 +1,4 @@
+import { HomeAlquilerComponent } from './components/alquiler/home-alquiler/home-alquiler.component';
 import { EditarPeliculaComponent } from './components/pelicula/editar-pelicula/editar-pelicula.component';
 import { RegistrarPeliculaComponent } from './components/pelicula/registrar-pelicula/registrar-pelicula.component';
 import { EditarClienteComponent } from './components/clientes/editar-cliente/editar-cliente.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
     path: 'actualizar-informacion-pelicula/:id',
     component: EditarPeliculaComponent,
   },
+  { path: 'alquiler', component: HomeAlquilerComponent },
 ];
 
 @NgModule({

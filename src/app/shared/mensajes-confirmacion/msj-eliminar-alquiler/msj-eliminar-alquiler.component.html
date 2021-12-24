@@ -1,0 +1,17 @@
+<div class="header-dialog">
+  <div>
+    <h2 class="titulo-card">Eliminar alquiler</h2>
+  </div>
+</div>
+<mat-dialog-content class="content-dialog">
+  <span
+    >¿ Está seguro de eliminar el alquiler
+    <b style="font-weight: bold">{{ id }}</b> ?</span
+  >
+</mat-dialog-content>
+<div mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button [mat-dialog-close]="true" (click)="eliminarAlquiler()">
+    Sí
+  </button>
+</div>
